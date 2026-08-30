@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@custom-variant dark (&:is(.dark *));
+@theme inline {
+  --color-background: var(--background); --color-foreground: var(--foreground); --color-card: var(--card); --color-card-foreground: var(--card-foreground); --color-popover: var(--popover); --color-popover-foreground: var(--popover-foreground); --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground); --color-secondary: var(--secondary); --color-secondary-foreground: var(--secondary-foreground); --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground); --color-accent: var(--accent); --color-accent-foreground: var(--accent-foreground); --color-destructive: var(--destructive); --color-border: var(--border); --color-input: var(--input); --color-ring: var(--ring); --color-chart-1: var(--chart-1); --color-chart-2: var(--chart-2); --color-chart-3: var(--chart-3); --color-chart-4: var(--chart-4); --color-chart-5: var(--chart-5); --font-sans: var(--font-geist-sans); --font-mono: var(--font-geist-mono); --radius-sm: calc(var(--radius) * .6); --radius-md: calc(var(--radius) * .8); --radius-lg: var(--radius); --radius-xl: calc(var(--radius) * 1.35); --radius-2xl: calc(var(--radius) * 1.8); --radius-3xl: calc(var(--radius) * 2.2);
+}
+:root { --background:#f3f7fc; --foreground:#17233b; --card:#fff; --card-foreground:#17233b; --popover:#fff; --popover-foreground:#17233b; --primary:#2f6fed; --primary-foreground:#fff; --secondary:#edf3fb; --secondary-foreground:#23436f; --muted:#edf3fb; --muted-foreground:#718096; --accent:#e7f0ff; --accent-foreground:#245dcc; --destructive:#d14343; --border:#dde7f2; --input:#dbe6f1; --ring:#6a9bf4; --chart-1:#2f6fed; --chart-2:#69a1ff; --chart-3:#5ac8b3; --chart-4:#9b8afb; --chart-5:#f2a65a; --radius:.8rem; }
+.dark { --background:#0f172a; --foreground:#eef5ff; --card:#17233a; --card-foreground:#eef5ff; --popover:#17233a; --popover-foreground:#eef5ff; --primary:#70a2ff; --primary-foreground:#0d1b35; --secondary:#20304a; --secondary-foreground:#dceaff; --muted:#20304a; --muted-foreground:#9fb0c6; --accent:#263b5c; --accent-foreground:#e7f0ff; --destructive:#ef7070; --border:#2b3b54; --input:#2b3b54; --ring:#70a2ff; }
+@layer base { * { @apply border-border outline-ring/50; } html { @apply font-sans; } body { @apply bg-background text-foreground; background-image:radial-gradient(circle at 8% 0%,rgba(118,173,255,.18),transparent 26%),radial-gradient(circle at 94% 16%,rgba(160,207,255,.15),transparent 22%); } button { cursor:pointer; } }
+
+@layer components {
+  .panel { @apply rounded-[26px] border border-white/80 bg-card shadow-[0_18px_60px_rgba(56,86,125,.08)]; }
+  .pill { @apply inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1.5 text-[10px] font-bold text-blue-700; }
+  .eyebrow { @apply text-[10px] font-extrabold tracking-[.15em] text-primary; }
+  .date-field { @apply inline-flex h-10 items-center gap-2 rounded-xl border bg-white px-3 text-xs font-bold text-slate-600; }
+  .date-field input { @apply w-[108px] bg-transparent text-[11px] outline-none; color-scheme: light; }
+}
+
+@media (max-width: 640px) {
+  .date-field { width: 100%; justify-content: center; }
+  .date-field input { width: 104px; }
+}
